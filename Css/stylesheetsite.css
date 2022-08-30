@@ -181,7 +181,7 @@ body{
     font-size: medium;
 }
 
-.form input{
+.loginfield{
     height: 2.5rem;
     width: 16rem;
     border: black solid 1px;
@@ -197,25 +197,28 @@ body{
     display: block;
     justify-content: center;
     align-items: center;
-    margin: .2rem;
 }
 
 #esquecisenha a{
     display: flex;
     font-size: small;
-    margin: .3rem;
-    margin-left: 50%;
+    margin: .1rem;
+    margin-left: 55%;
 }
 
 .submit{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: medium;
-    margin: 1rem;
+    margin: 2rem;
     border: auto;
     height: 2.45rem;
     width: 10rem;
     border-radius: 1rem;
     border: 1px solid gray;
+}
+
+#submitcadastro{
+    margin: 1rem;
 }
 
 .submit:hover{
