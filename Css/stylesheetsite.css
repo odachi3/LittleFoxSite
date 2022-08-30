@@ -1,0 +1,323 @@
+/* Geral */
+@font-face {
+    font-family: pixelada;
+    src: url(../Css/Retro\ Gaming.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-image: url(montanha_pixel.png);
+    background-size: 105%;
+    background-position:top;
+}
+/* NavBar */
+.navbar{
+    display: flex;
+    text-align: center;
+    padding: auto;
+    font-weight: bold;
+    background-image: url(parallaxcenario.jpeg);
+    background-size: 103%;
+    background-position: center;
+    background-position-y: 8rem;
+    border: .2rem inset gold;
+    border-radius: 3px;
+    margin: 0.2rem;
+    height: 6rem;
+}
+
+#navbar a{
+    list-style: 0;
+    color: rgb(255, 255, 255);
+    background-color:  rgb(0, 0, 0);
+}
+
+#homebutton{
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    padding: 1rem;
+    font-size: medium;
+    color: white;
+    font-family: pixelada;
+}
+
+#gamebutton{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2rem;
+    display:flex;
+    justify-content: center;
+    margin: auto;
+    border: gold inset 2px;
+    font-family: pixelada;
+    font-size: xx-large;
+    color: gold;
+    padding: .3rem 1rem .5rem 1rem;
+}
+
+#sobrenosbutton{
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    padding: 1rem;
+    font-size: medium;
+    color: white;
+    font-family: pixelada;
+}
+
+#supportbutton{
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    font-size: medium;
+    padding: 1rem;
+    color: white;
+    font-family: pixelada;
+}
+
+#loginbutton{
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    margin:auto;
+    font-size: medium;
+    padding: 1rem;
+    color: white;
+    font-family: pixelada;
+}
+
+#homebutton:hover{
+    color: gold;
+    transition: .3s;
+}
+
+#gamebutton:hover{
+    color:yellow;
+    transition: .3s;
+}
+
+#loginbutton:hover{
+    color: gold;
+    transition: .3s;
+}
+
+#supportbutton:hover{
+    color: gold;
+    transition: .3s;
+}
+
+#sobrenosbutton:hover{
+    color: gold;
+    transition: 0.3s;
+}
+
+.linkbutton:hover{
+    color: aqua;
+    transition: .3s;
+}
+
+.maintext p{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: .5rem;
+    height: 31rem;
+    padding: 1rem;
+    color: black;
+    font-family: pixelada;
+    font-size: large;
+}
+
+.loginpage{
+    height: 23rem;
+    width: 22rem;
+    background-color: white;
+    margin: 6rem auto;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1.5rem;
+}
+
+#titulodelogin{
+    width: 7rem;
+    margin-bottom: .5rem;
+    border-radius: 2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: x-large;
+    margin: .7rem auto;
+    padding: .3rem;
+}
+
+#titulodecadastro{
+    width: 7rem;
+    margin-bottom: .5rem;
+    border-radius: 2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: x-large;
+    margin: .1rem auto;
+    padding: .3rem;
+}
+
+.label{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+}
+
+.form input{
+    height: 2.5rem;
+    width: 16rem;
+    border: black solid 1px;
+    border-radius: 5px;
+    margin: .5rem;
+}
+
+.loginpage a{
+    color: blue;
+}
+
+.form{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: .2rem;
+}
+
+#esquecisenha a{
+    display: flex;
+    font-size: small;
+    margin: .3rem;
+    margin-left: 50%;
+}
+
+.submit{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    margin: 1rem;
+    border: auto;
+    height: 2.45rem;
+    width: 10rem;
+    border-radius: 1rem;
+    border: 1px solid gray;
+}
+
+.submit:hover{
+    background-color: lightgray;
+    border: black 1px inset ;
+    transition: .2s;
+}
+
+.linkbutton{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+}
+
+.sobrenostexto{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 1rem;
+    height: 90%;
+    padding: 1rem;
+}
+
+.sobrenostexto p, strong{
+    font-family: pixelada;
+    font-size: large;
+    color: white;
+    margin: .5rem;
+}
+
+.fotosobrenos{
+    margin: 1rem;
+    border: white outset 2px;
+}
+
+.supportlabel{
+    font-family: pixelada;
+    display: flex;
+    font-size:xx-large;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+    padding: .4rem;
+    background: url(./fundocinza.png); 
+    border: solid 1px indigo;
+}
+
+.encontrouproblema{
+    font-family: pixelada;
+    font-size: larger;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 2rem auto;
+    text-align: center;
+    width: 60%;
+    padding: .4rem;
+    background: url(./fundocinza.png); 
+    border-radius: 1rem;
+    border: inset 2px indigo;
+}
+
+.redessociais{
+    padding: 2rem;
+    margin: auto;
+    text-align: center;
+    width: 35%;
+    height: 16rem;
+    border: inset indigo 2px;
+    border-radius: 1rem;
+    background: url(./fundocinza.png); 
+
+}
+
+.redessociais p{
+    padding: .7rem;
+    margin: auto;
+    font-family:pixelada;
+    font-size:larger;
+    font-weight: bold;
+}
+
+.redessociais a{
+    font-family: pixelada;
+    font-size:larger;
+    font-weight: bold;
+    margin-top: 2rem;
+    color: darkblue;
+}
+
+.redessociais a:hover{
+    color: blue;
+    transition: 0.2s;
+}
+
+.bodysuporte{
+    background: url(./raposa\ 01\ \(1\).png);
+    background-size: 110%;
+    height: 100%;
+    width: 100%;
+    overflow:hidden
+}
+
+.gameatworkimg{
+    display: flex;
+    justify-content: center;
+    padding: 10rem;
+}
