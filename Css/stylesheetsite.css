@@ -17,6 +17,7 @@ body{
     background-image: url(montanha_pixel.png);
     background-size: cover;
     background-position:top;
+    overflow: hidden;
 }
 /* NavBar */
 .navbar{
@@ -28,15 +29,24 @@ body{
     background-repeat: no-repeat;
     background-position-x: 20%;
     background-position-y: 75%;
-    border: .2rem inset gold;
-    height: 6rem;
+    border: 2px white solid;
+    height: 7rem;
 }
 
-#navbar a{
+.navbar a{
     color: rgb(255, 255, 255);
     background-color:  rgb(0, 0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin: auto;
+    font-family: pixelada;
+    font-size: x-large;
 }
-
+/*
 #homebutton{
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 2rem;
@@ -100,30 +110,40 @@ body{
     color: white;
     font-family: pixelada;
 }
+*/
 
 #homebutton:hover{
-    color: gold;
+    color: black;
+    background-color: lightgray;
+    border: 2px solid white;
     transition: .3s;
 }
 
 #gamebutton:hover{
-    color:yellow;
-    border-color: yellow;
+    color: black;
+    background-color: lightgray;
+    border: 2px solid white;
     transition: .3s;
 }
 
 #loginbutton:hover{
-    color: gold;
+    color: black;
+    background-color: lightgray;
+    border: 2px solid white;
     transition: .3s;
 }
 
 #supportbutton:hover{
-    color: gold;
+    color: black;
+    background-color: lightgray;
+    border: 2px solid white;
     transition: .3s;
 }
 
 #sobrenosbutton:hover{
-    color: gold;
+    color: black;
+    background-color: lightgray;
+    border: 2px solid white;
     transition: 0.3s;
 }
 
@@ -139,11 +159,11 @@ body{
     margin: .5rem;
     height: 31rem;
     padding-top: 2rem;
-    padding-left: 18rem;
-    padding-right: 18rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
     color: white;
     font-family: pixelada;
-    font-size: large;
+    font-size:larger;
     border-radius: 1rem;
 }
 
@@ -330,7 +350,11 @@ body{
 
 /* Mobile */
 
-@media screen and (max-width:900px) and (min-width: 640px), (max-width:900px) {
+@media screen and (max-width:870px) and (min-width: 640px), (max-width:870px) {
+
+    *{
+        overflow: auto;
+    }
 
     .navbar{
         color: white;
@@ -340,6 +364,7 @@ body{
         width: 100%;
         text-align: center;
         border: none;
+        overflow: hidden;
     }
     
     #homebutton{
