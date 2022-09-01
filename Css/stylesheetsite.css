@@ -1,4 +1,5 @@
 /* Geral */
+
 @font-face {
     font-family: pixelada;
     src: url(../Css/Retro\ Gaming.ttf);
@@ -9,11 +10,12 @@
     margin: 0;
     text-decoration: 0;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-repeat: no-repeat;
 }
 
 body{
     background-image: url(montanha_pixel.png);
-    background-size: 105%;
+    background-size: cover;
     background-position:top;
 }
 /* NavBar */
@@ -31,7 +33,6 @@ body{
 }
 
 #navbar a{
-    list-style: 0;
     color: rgb(255, 255, 255);
     background-color:  rgb(0, 0, 0);
 }
@@ -325,4 +326,132 @@ body{
     display: flex;
     justify-content: center;
     padding: 10rem;
+}
+
+/* Mobile */
+
+@media screen and (max-width:900px) and (min-width: 640px), (max-width:900px) {
+
+    .navbar{
+        color: white;
+        display: block;
+        background: black;
+        height:auto;
+        width: 100%;
+        text-align: center;
+        border: none;
+    }
+    
+    #homebutton{
+        margin: 0;
+        padding: 1rem;
+        font-size: large;
+        color: white;
+        font-family: pixelada;
+        position:static;
+        justify-content: center;
+        border-radius: 0;
+    }
+
+    #gamebutton{
+        padding: 1rem;
+        font-size: large;
+        color: white;
+        font-family: pixelada;
+        position:static;
+        justify-content: center;
+        border-radius: 0;
+        border: none;
+    }
+
+    #sobrenosbutton{
+        padding: 1rem;
+        font-size: large;
+        color: white;
+        font-family: pixelada;
+        position:static;
+        justify-content: center;
+        border-radius: 0;
+    }
+
+    #supportbutton{
+        padding: 1rem;
+        font-size: large;
+        color: white;
+        font-family: pixelada;
+        position:static;
+        justify-content: center;
+        border-radius: 0;
+    }
+
+    #loginbutton{
+        padding: 1rem;
+        font-size: large;
+        color: white;
+        font-family: pixelada;
+        position:static;
+        justify-content: center;
+        border-radius: 0;
+    }
+
+    #homebutton:hover{
+        color: black;
+        border: 2px solid white;
+        border-radius: 0;
+        background-color: lightgray;
+        transition: .3s;
+    }
+
+    #gamebutton:hover{
+        color: black;
+        border: 2px solid white;
+        border-radius: 0;
+        background-color: lightgray;
+        transition: .3s;
+    }
+
+    #loginbutton:hover{
+        color: black;
+        border: 2px solid white;
+        border-radius: 0;
+        background-color: lightgray;
+        transition: .3s;
+    }
+
+    #supportbutton:hover{
+        color: black;
+        border: 2px solid white;
+        border-radius: 0;
+        background-color: lightgray;
+        transition: .3s;
+    }
+
+    #sobrenosbutton:hover{
+        color: black;
+        border: 2px solid white;
+        border-radius: 0;
+        background-color: lightgray;
+        transition: 0.3s;
+    }
+
+    .linkbutton:hover{
+        color: aqua;
+        transition: .3s;
+    }
+
+    .maintext p{
+        display: block;
+        background-color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        padding: 2rem;
+        height: auto;
+        color: white;
+        font-family: pixelada;
+        font-size: large;
+        border-radius: 1rem;
+    }
+
+    .foxgif{
+        height: 10rem;
+    }
 }
