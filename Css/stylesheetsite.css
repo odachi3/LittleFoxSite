@@ -46,71 +46,6 @@ body{
     font-family: pixelada;
     font-size: x-large;
 }
-/*
-#homebutton{
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin:auto;
-    padding: 1rem;
-    font-size: medium;
-    color: white;
-    font-family: pixelada;
-}
-
-#gamebutton{
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 2rem;
-    display:flex;
-    justify-content: center;
-    margin: auto;
-    border: gold outset 2px;
-    font-family: pixelada;
-    font-size: xx-large;
-    color: gold;
-    padding: .3rem 1rem .5rem 1rem;
-}
-
-#sobrenosbutton{
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin:auto;
-    padding: 1rem;
-    font-size: medium;
-    color: white;
-    font-family: pixelada;
-}
-
-#supportbutton{
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    font-size: medium;
-    padding: 1rem;
-    color: white;
-    font-family: pixelada;
-}
-
-#loginbutton{
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    margin:auto;
-    font-size: medium;
-    padding: 1rem;
-    color: white;
-    font-family: pixelada;
-}
-*/
 
 #homebutton:hover{
     color: black;
@@ -342,18 +277,39 @@ body{
     overflow:hidden
 }
 
+.paginajogo{
+    background: url(../Css/montanha_pixel.png);
+    background-size: 120%;
+    background-repeat: no-repeat;
+}
+
 .gameatworkimg{
-    display: flex;
-    justify-content: center;
-    padding: 10rem;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.gameatworktxt{
+    visibility: hidden;
 }
 
 /* Mobile */
 
 @media screen and (max-width:870px) and (min-width: 640px), (max-width:870px) {
 
+@font-face {
+    font-family: pixelada;
+    src: url(../Css/Retro\ Gaming.ttf);
+}
+
     *{
         overflow: auto;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
     }
 
     .navbar{
@@ -478,5 +434,56 @@ body{
 
     .foxgif{
         height: 10rem;
+    }
+
+    .sobrenostexto{
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.7);
+        margin: .5rem;
+        height: 90%;
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .sobrenostexto p, strong{
+        font-family: pixelada;
+        font-size: large;
+        color: white;
+        margin: .5rem;
+    }
+
+    .fotosobrenos{
+        position: absolute;
+        height: 0px;
+        width: 0px;
+        visibility: hidden;
+    }
+
+    .paginajogo{
+        background: url(../Css/montanha_pixel.png);
+        background-size: 250%;
+        background-repeat: no-repeat;
+    }
+
+    .gameatworkimg{
+        position: absolute;
+        visibility: hidden;
+    }
+
+    .gameatworktxt{
+        position: absolute;
+        margin: auto;
+        padding: 1rem;
+        top: 10%;
+        left: 10%;
+        right: 10%;
+        bottom: 10%;
+        border-radius: 1rem;
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+        font-family: pixelada ;
+        font-size: xx-large;
+        text-align: center;
+        visibility: visible;        
     }
 }
