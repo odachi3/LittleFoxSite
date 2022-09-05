@@ -265,7 +265,7 @@ body{
 }
 
 .redessociais a:hover{
-    color: blue;
+    color: rgb(0, 150, 180);
     transition: 0.2s;
 }
 
@@ -486,4 +486,70 @@ body{
         text-align: center;
         visibility: visible;        
     }
+
+    .bodysuporte{
+        background: url(./raposa\ 01\ \(1\).png);
+        background-size: 250%;
+        background-position: center;
+        height: 100%;
+        width: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .supportlabel{
+        font-family: pixelada;
+        display: flex;
+        font-size:xx-large;
+        font-weight: bolder;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        width: 100%;
+        padding: .4rem;
+        background-color: rgba(171, 0, 238, 0.1); 
+        border: solid 1px indigo;
+    }
+
+    .encontrouproblema{
+        font-family: pixelada;
+        font-size: larger;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        width: 80%;
+        padding: .4rem;
+        background-color: rgba(171, 0, 238, 0.1); 
+        border-radius: 1rem;
+        border: inset 2px indigo;
+    }
+
+    .redessociais{
+        padding: 2rem;
+        margin: auto;
+        text-align: center;
+        width: 60%;
+        height: 16rem;
+        border: inset indigo 2px;
+        border-radius: 1rem;
+        background-color: rgba(171, 0, 238, 0.1); 
+    }
+
+    .redessociais p{
+        padding: .5rem;
+        margin: auto;
+        font-family:pixelada;
+        font-size:larger;
+        font-weight: bold;
+        overflow:visible;
+    }
+
+    .redessociais a{
+        font-family: pixelada;
+        font-size:larger;
+        font-weight: bold;
+        margin-top: 2rem;
+        color: darkblue;
+    }
+
 }
