@@ -14,21 +14,17 @@
 }
 
 body{
-    background-image: url(montanha_pixel.png);
+    background-image: url(./fox_supscreen\ \(1\).png);
     background-size: cover;
-    background-position:top;
+    background-position: top;
     overflow: hidden;
 }
+
 /* NavBar */
 .navbar{
     display: flex;
     padding: auto;
     font-weight: bold;
-    background-image: url(parallaxcenario.jpeg);
-    background-size: 105%;
-    background-repeat: no-repeat;
-    background-position-x: 20%;
-    background-position-y: 75%;
     border: 2px white solid;
     height: 7rem;
 }
@@ -218,8 +214,9 @@ body{
     margin-top: 1rem;
     width: 100%;
     padding: .4rem;
-    background-color: rgba(171, 0, 238, 0.1); 
-    border: solid 1px indigo;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid 1px black;
+    color: antiquewhite;
 }
 
 .encontrouproblema{
@@ -232,9 +229,10 @@ body{
     text-align: center;
     width: 60%;
     padding: .4rem;
-    background-color: rgba(171, 0, 238, 0.1); 
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 1rem;
-    border: inset 2px indigo;
+    border: inset 2px  black;
+    color: antiquewhite;
 }
 
 .redessociais{
@@ -243,9 +241,9 @@ body{
     text-align: center;
     width: 35%;
     height: 16rem;
-    border: inset indigo 2px;
+    border: inset black 2px;
     border-radius: 1rem;
-    background-color: rgba(171, 0, 238, 0.1);  
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .redessociais p{
@@ -254,6 +252,7 @@ body{
     font-family:pixelada;
     font-size:larger;
     font-weight: bold;
+    color: antiquewhite;
 }
 
 .redessociais a{
@@ -261,25 +260,26 @@ body{
     font-size:larger;
     font-weight: bold;
     margin-top: 2rem;
-    color: darkblue;
+    color: green;
 }
 
 .redessociais a:hover{
-    color: rgb(0, 150, 180);
+    color: lime;
     transition: 0.2s;
 }
 
 .bodysuporte{
-    background: url(./raposa\ 01\ \(1\).png);
-    background-size: 110%;
+    background: url(./fox_supscreen\ \(1\).png);
+    background-size: 100%;
+    background-repeat: no-repeat;
     height: 100%;
     width: 100%;
     overflow:hidden
 }
 
 .paginajogo{
-    background: url(../Css/montanha_pixel.png);
-    background-size: 120%;
+    background: url(mountains_login.png);
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
