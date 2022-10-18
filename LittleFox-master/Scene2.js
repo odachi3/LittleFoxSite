@@ -1,4 +1,5 @@
-class Scene2 extends Phaser.Scene {
+class Scene2 extends Phaser.Scene 
+{
     constructor() {
       super("playGame");
     }
@@ -26,29 +27,29 @@ class Scene2 extends Phaser.Scene {
       this.background01.setScale(1.5);
       //
 
-    //HUD Score
-    var graphics = this.add.graphics();
-    graphics.fillStyle(0x261321, 1);
-    graphics.beginPath();
-    graphics.moveTo(0, 0);
-    graphics.lineTo(config.width, 0);
-    graphics.lineTo(config.width, 30);
-    graphics.lineTo(0, 30);
-    graphics.lineTo(0, 0);
-    graphics.closePath();
-    graphics.fillPath();
+      //HUD Score
+      var graphics = this.add.graphics();
+      graphics.fillStyle(0x261321, 1);
+      graphics.beginPath();
+      graphics.moveTo(0, 0);
+      graphics.lineTo(config.width, 0);
+      graphics.lineTo(config.width, 30);
+      graphics.lineTo(0, 30);
+      graphics.lineTo(0, 0);
+      graphics.closePath();
+      graphics.fillPath();
     
-    //HUD Botões
-    var graphics = this.add.graphics();
-    graphics.fillStyle(0x261321, 1);
-    graphics.beginPath();
-    graphics.moveTo(0, 270);
-    graphics.lineTo(config.width, 270);
-    graphics.lineTo(config.width, 615);
-    graphics.lineTo(270, 615);
-    graphics.lineTo(0, 615);
-    graphics.closePath();
-    graphics.fillPath();
+      //HUD Botões
+      var graphics = this.add.graphics();
+      graphics.fillStyle(0x261321, 1);
+      graphics.beginPath();
+      graphics.moveTo(0, 270);
+      graphics.lineTo(config.width, 270);
+      graphics.lineTo(config.width, 615);
+      graphics.lineTo(270, 615);
+      graphics.lineTo(0, 615);
+      graphics.closePath();
+      graphics.fillPath();
     
 
       //score
@@ -57,23 +58,38 @@ class Scene2 extends Phaser.Scene {
       //Textos
       this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "Lixo coletado: ", 25);
 
-      //posicionamento raposa correndo
-      this.fox = this.add.sprite(202, 202, 'fox');
-      this.fox.setScale(1.5);
 
+      //posicionamento raposa correndo
+      this.fox = this.add.sprite(202, 202, 'foxrun');
+      this.fox.setScale(1.5);
       //animação raposa correnndo
       this.anims.create({
-        key: "fox_anim",
-        frames: this.anims.generateFrameNumbers("fox"),
+        key: "fox_run_anim",
+        frames: this.anims.generateFrameNumbers("foxrun"),
         frameRate: 10,
         repeat: -1
       });
-      this.fox.play("fox_anim");
+      this.fox.play("fox_run_anim");
+      
 
+      //lixos
+      this.lixo01 = this.add.image(1300, 215, "lixo01");
+      this.lixo01.setScale(1.5);
+      this.lixo02 = this.add.image(1450, 215, "lixo02");
+      this.lixo01.setScale(1.5);
+      this.lixo03 = this.add.image(1550, 230, "lixo03");
+      this.lixo01.setScale(1.5);
+
+      this.cursorKeys = this.input.keyboard.createCursorKeys();
     }
   
     // 0 add the update function
     update() {
+      //lixos movendo (chamando a funçao)
+      this.moveLixo1(this.lixo01, -3, 0);
+      this.moveLixo2(this.lixo02, -3, 0);
+      this.moveLixo3(this.lixo03, -3, 0);
+
       //parallax
       this.background01.tilePositionX += 2;
       this.background02.tilePositionX += 1;
@@ -81,6 +97,52 @@ class Scene2 extends Phaser.Scene {
       this.background04.tilePositionX += 0.25;
       this.background05.tilePositionX += 0.125;
       this.background06.tilePositionX += 0;
+
+    }
+    //lixos movendo funçao
+    moveLixo1(lixo, speedx, speedy)
+    {
+      lixo.y += speedy 
+      lixo.x += speedx
+      if(lixo.x < -30 && this.lixo01)
+      {
+        lixo.x = 1350;
+      }
+    }
+    moveLixo2(lixo, speedx, speedy)
+    {
+      lixo.y += speedy 
+      lixo.x += speedx
+      if(lixo.x < -30 && this.lixo02)
+      {
+        lixo.x = 1450;
+      }
+    }
+    moveLixo3(lixo, speedx, speedy)
+    {
+      lixo.y += speedy 
+      lixo.x += speedx
+      if(lixo.x < -30 && this.lixo03)
+      {
+        lixo.x = 1550;
+      }
+    }
+
+    MovePlayerManager()
+    {
+      if(this.cursorKeys.up.isDown)
+      {
+        this.fox = this.add.sprite(202, 202, 'foxatk');
+        this.fox.setScale(1.5);
+        this.anims.create
+        ({
+          key: "fox_atk_anim",
+          frames: this.anims.generateFrameNumbers("foxatk"),
+          frameRate: 10,
+          repeat: 0
+        });
+        this.fox.play("fox_atk_anim");
+      }
     }
   
-  }
+}

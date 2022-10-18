@@ -17,11 +17,21 @@ class Scene1 extends Phaser.Scene
         this.load.image("background04", "./assets/images/parallax04.png");
         this.load.image("background05", "./assets/images/parallax05.png");
         this.load.image("background06", "./assets/images/parallax06.png");
+    
+        //lixos
+        this.load.image("lixo01", "./assets/images/lixo01.png");
+        this.load.image("lixo02", "./assets/images/lixo02.png");
+        this.load.image("lixo03", "./assets/images/lixo03.png");
 
         //raposa spritesheet
-        this.load.spritesheet("fox", "./assets/spritesheets/fox_run_spritesheet.png",
+        this.load.spritesheet("foxrun", "./assets/spritesheets/fox_run_spritesheet.png",
         {
             frameWidth: 64,
+            frameHeight: 64
+        });
+        this.load.spritesheet("foxatk", "./assets/spritesheets/fox_atk_spritesheet.png",
+        {
+            frameWidth: 80,
             frameHeight: 64
         });
 
