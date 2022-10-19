@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
+    <!-- Head definindo o titulo da pagina e conectando a estilização. -->
 <head>
-    <meta charset="utf8">
     <title>Login e Cadastro</title>
     <link href="../Css/stylesheetsite.css" rel="stylesheet">
 </head>
 <body>
+    <!--Área de login, com os campos para o usuário inserir o nome e senha-->
     <div class="loginpage">
-        <h1 id="titulodelogin">Login</h1>
-
+        <h1 class="titulodelogin">Login</h1>
         <div class="form">
             <form type="text" method="POST">
                 <br>
-                <input type="text" name="username" placeholder=" Nome de Usuário" class="loginfield">
+                <input type="text" name="username" placeholder=" E-mail" class="loginfield">
                 <input type="password" name="userpw" placeholder=" Senha" class="loginfield">
                 <br>
+                <!--Botão que leva à tela de esqueceu a senha-->
                 <div id="esquecisenha">
                 <a href="./suporte.html" target="_blank" class="linkbutton">Esqueceu a Senha?</a>
                 </div>
               <input type="submit" value="Entrar" class="submit">
             </form>
             </div>
-        <div>
-        </div>
+            <!--Botão que leva à tela de cadastro-->
         <a type="button" href="./cadastro.html" class="linkbutton">Ainda não tem Login? Cadastre-se aqui!</a>
     </div>
 </body>
