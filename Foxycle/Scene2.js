@@ -50,7 +50,9 @@ class Scene2 extends Phaser.Scene
       graphics.lineTo(0, 615);
       graphics.closePath();
       graphics.fillPath();
-    
+
+      //borda
+      this.hud = this.add.sprite(300, 450, "borda")
 
       //score
       this.score = 0;
@@ -60,17 +62,32 @@ class Scene2 extends Phaser.Scene
 
 
       //posicionamento raposa correndo
-      this.fox = this.add.sprite(202, 202, 'foxrun');
-      this.fox.setScale(1.5);
-      //animação raposa correnndo
+      //this.fox = this.add.sprite(202, 202, 'foxrun');
+      //this.fox.setScale(1.5);
+      //animação raposa correnndo e atk
       this.anims.create({
         key: "fox_run_anim",
         frames: this.anims.generateFrameNumbers("foxrun"),
         frameRate: 10,
         repeat: -1
       });
-      this.fox.play("fox_run_anim");
-      
+      //this.fox.play("fox_run_anim");
+
+      this.anims.create({
+          key: "fox_atk_anim",
+          frames: this.anims.generateFrameNumbers("foxatk"),
+          frameRate: 10,
+          repeat: 0
+      });
+      //transicionar animaçao
+      this.anims.addMix('fox_run_anim', 'fox_atk_anim', 250)
+      this.anims.addMix('fox_atk_anim', 'fox_run_anim', 250)
+
+      //variavel fox
+      var fox = this.add.sprite(202, 202).setInteractive();
+      fox.setOrigin(0.5, 0.5);
+      fox.play('fox_run_anim');
+      fox.setScale(1.5);
 
       //lixos
       this.lixo01 = this.add.image(1300, 215, "lixo01");
@@ -80,11 +97,25 @@ class Scene2 extends Phaser.Scene
       this.lixo03 = this.add.image(1550, 230, "lixo03");
       this.lixo01.setScale(1.5);
 
-      this.cursorKeys = this.input.keyboard.createCursorKeys();
+
+      this.input.on('pointerdown', function () {
+
+        if (fox.anims.getName() === 'fox_run_anim')
+          {
+              fox.play('fox_atk_anim');
+          }
+          else if (fox.anims.getName() === 'fox_atk_anim')
+          {
+                fox.play('fox_run_anim');
+          }
+
+      });
+
     }
   
     // 0 add the update function
-    update() {
+    update() 
+    {
       //lixos movendo (chamando a funçao)
       this.moveLixo1(this.lixo01, -3, 0);
       this.moveLixo2(this.lixo02, -3, 0);
@@ -98,6 +129,23 @@ class Scene2 extends Phaser.Scene
       this.background05.tilePositionX += 0.125;
       this.background06.tilePositionX += 0;
 
+  
+      
+      /*if(Phaser.Input.Keyboard.JustDown(this.spacebar))
+      {
+        /*this.fox = this.add.sprite(202, 202, 'foxatk');
+        this.fox.play("fox_atk_anim");
+        this.fox.setScale(1.5);
+
+        if (fox.anims.getName() === 'fox_run_anim')
+            {
+                fox.play('fox_atk_anim');
+            }
+            else if (fox.anims.getName() === 'fox_atk_anim')
+            {
+                fox.play('fox_run_anim');
+            }
+      }*/
     }
     //lixos movendo funçao
     moveLixo1(lixo, speedx, speedy)
@@ -127,22 +175,4 @@ class Scene2 extends Phaser.Scene
         lixo.x = 1550;
       }
     }
-
-    MovePlayerManager()
-    {
-      if(this.cursorKeys.up.isDown)
-      {
-        this.fox = this.add.sprite(202, 202, 'foxatk');
-        this.fox.setScale(1.5);
-        this.anims.create
-        ({
-          key: "fox_atk_anim",
-          frames: this.anims.generateFrameNumbers("foxatk"),
-          frameRate: 10,
-          repeat: 0
-        });
-        this.fox.play("fox_atk_anim");
-      }
-    }
-  
 }
