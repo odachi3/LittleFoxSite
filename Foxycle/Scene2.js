@@ -62,8 +62,7 @@ class Scene2 extends Phaser.Scene
 
 
       //posicionamento raposa correndo
-      //this.fox = this.add.sprite(202, 202, 'foxrun');
-      //this.fox.setScale(1.5);
+      
       //animação raposa correnndo e atk
       this.anims.create({
         key: "fox_run_anim",
@@ -71,7 +70,6 @@ class Scene2 extends Phaser.Scene
         frameRate: 10,
         repeat: -1
       });
-      //this.fox.play("fox_run_anim");
 
       this.anims.create({
           key: "fox_atk_anim",
@@ -84,7 +82,9 @@ class Scene2 extends Phaser.Scene
       this.anims.addMix('fox_atk_anim', 'fox_run_anim', 250)
 
       //variavel fox
-      var fox = this.add.sprite(202, 202).setInteractive();
+      var fox = this.add.sprite(202, 202)
+      var shape = new Phaser.Geom.Circle(36, 35, 35);
+      fox.setInteractive(shape, Phaser.Geom.Circle.Contains);
       fox.setOrigin(0.5, 0.5);
       fox.play('fox_run_anim');
       fox.setScale(1.5);
@@ -97,14 +97,17 @@ class Scene2 extends Phaser.Scene
       this.lixo03 = this.add.image(1550, 230, "lixo03");
       this.lixo01.setScale(1.5);
 
-
-      this.input.on('pointerdown', function () {
+      fox.on('pointerdown', function (pointer) {
 
         if (fox.anims.getName() === 'fox_run_anim')
           {
               fox.play('fox_atk_anim');
           }
-          else if (fox.anims.getName() === 'fox_atk_anim')
+
+      });
+      fox.on('pointerup', function (pointer) {
+
+        if (fox.anims.getName() === 'fox_atk_anim')
           {
                 fox.play('fox_run_anim');
           }
