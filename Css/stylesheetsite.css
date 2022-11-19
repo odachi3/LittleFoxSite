@@ -17,6 +17,7 @@ body{
     background-size: cover;
     background-position: top;
     overflow: hidden;
+    background-color: black;
 }
 
 /* NavBar */
@@ -49,11 +50,18 @@ body{
     transition: .3s;
 }
 
-/*Animação dos botões na tela de cadastro*/
+/*Cor dos links*/
+.linkbutton{
+    color: green;
+    font-weight: bold;
+}
+
+/*Animação dos links*/
 .linkbutton:hover{
-    color: aqua;
+    color: lime;
     transition: .3s;
 }
+
 /*Texto principal da primeira tela*/
 .maintext p{
     display: block;
@@ -73,7 +81,9 @@ body{
 .loginpage{
     height: 23rem;
     width: 22rem;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px inset black;
+    color: limegreen;
     margin: 6rem auto;
     text-align: center;
     padding: 1rem;
@@ -101,11 +111,9 @@ body{
     border: black solid 1px;
     border-radius: 5px;
     margin: .5rem;
+    background-color: rgba(255 , 255 , 255 , 0.8);
 }
 
-.loginpage a{
-    color: blue;
-}
 /*Formulários de login e cadastro*/
 .form{
     display: block;
@@ -118,6 +126,7 @@ body{
     font-size: small;
     margin: .1rem;
     margin-left: 55%;
+    font-weight: bold;
 }
 /*Botões de login e cadastro*/
 .submit{
@@ -134,12 +143,14 @@ body{
 #submitcadastro{
     margin: 1rem;
 }
+
 /*Animação dos botões de login e cadastro*/
 .submit:hover{
     background-color: lightgray;
     border: black 1px inset ;
     transition: .2s;
 }
+
 /*Define fonte e tamanho dos links*/
 .linkbutton{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -224,12 +235,6 @@ body{
     margin-top: 2rem;
     color: green;
 }
-/*Animações dos links das redes sociais*/
-.redessociais a:hover{
-    color: lime;
-    transition: 0.2s;
-}
-
 /* Mobile */
 
 @media screen and (max-width:920px) and (min-width: 640px), (max-width:920px) {
@@ -321,6 +326,7 @@ body{
         height: 100%;
         width: 100%;
         background-repeat: no-repeat;
+        background-color: aqua;
     }
     /*Título da tela de suporte*/
     .supportlabel{
