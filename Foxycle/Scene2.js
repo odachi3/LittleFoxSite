@@ -6,6 +6,7 @@ class Scene2 extends Phaser.Scene
   
     create() {
 
+      
       //Imagens do cenário parallax
       this.background06 = this.add.tileSprite(0, 0, config.width, config.height, "background06");
       this.background06.setOrigin(0, 0);
@@ -45,42 +46,153 @@ class Scene2 extends Phaser.Scene
       graphics.beginPath();
       graphics.moveTo(0, 270);
       graphics.lineTo(config.width, 270);
-      graphics.lineTo(config.width, 615);
-      graphics.lineTo(270, 615);
-      graphics.lineTo(0, 615);
+      graphics.lineTo(config.width, 725);
+      graphics.lineTo(270, 725);
+      graphics.lineTo(0, 725);
       graphics.closePath();
       graphics.fillPath();
 
-      //borda
-      this.hud = this.add.sprite(300, 450, "borda")
-
+      //HUD menu
+      var graphics = this.add.graphics();
+      graphics.fillStyle(0x4c3339, 1);
+      graphics.beginPath();
+      graphics.moveTo(850, 300);
+      graphics.lineTo(850, 300);
+      graphics.lineTo(850, 700);
+      graphics.lineTo(1450, 700);
+      graphics.lineTo(1450, 300);
+      graphics.closePath();
+      graphics.fillPath();
+      
       //score
       this.score = 0;
     
       //Textos
       this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "Lixo coletado: ", 25);
+      this.menu = this.add.bitmapText(1140, 315, "pixelFont", "MENU", 25);
 
+      //botoes
 
-      //posicionamento raposa correndo
+      //botao 01
+      var botao01 = this.add.sprite(70, 350, "botao01");
+      botao01.setScale(1.5);
+      botao01.setInteractive()
+      var borda01 = this.add.sprite(260, 375, "borda");
+      this.plank = this.add.sprite(260, 330, "plank"); 
+
+      botao01.on('pointerover', function(){
+
+        botao01.setTint(0xa37f5f);
+      });
+      botao01.on('pointerout', function(){
+
+        botao01.clearTint();
+        
+      });
+
+      //botao 02
+      var botao02 = this.add.sprite(70, 500, "botao02");
+      botao02.setScale(1.5);
+      botao02.setInteractive()
+      var borda02 = this.add.sprite(260, 525, "borda");
+      this.plank = this.add.sprite(260, 475, "plank");
+
+      botao02.on('pointerover', function(){
+
+        botao02.setTint(0xa37f5f);
+
+      });
+      botao02.on('pointerout', function(){
+
+        botao02.clearTint();
+        
+      });
+
+      //botao 03
+      var botao03 = this.add.sprite(70, 650, "botao03");
+      botao03.setScale(1.5);
+      botao03.setInteractive()
+      var borda03 = this.add.sprite(260, 675, "borda");
+      this.plank = this.add.sprite(260, 625, "plank");
+
+      botao03.on('pointerover', function(){
+
+        botao03.setTint(0xa37f5f);
+
+      });
+      botao03.on('pointerout', function(){
+
+        botao03.clearTint();
+        
+      });
+
+      //botao 04
+      var botao04 = this.add.sprite(470, 350, "botao04");
+      botao04.setScale(1.5);
+      botao04.setInteractive()
+      var borda04 = this.add.sprite(660, 375, "borda");
+      this.plank = this.add.sprite(660, 325, "plank");
+
+      botao04.on('pointerover', function(){
+
+        botao04.setTint(0xa37f5f);
+
+      });
+      botao04.on('pointerout', function(){
+
+        botao04.clearTint();
+        
+      });
+
+      //botao 05
+      var botao05 = this.add.sprite(470, 500, "botao05");
+      botao05.setScale(1.5);
+      botao05.setInteractive()
+      var borda05 = this.add.sprite(660, 525, "borda");
+      this.plank = this.add.sprite(660, 475, "plank");
+
+      botao05.on('pointerover', function(){
+
+        botao05.setTint(0xa37f5f);
+
+      });
+      botao05.on('pointerout', function(){
+
+        botao05.clearTint();
+        
+      });
+
+      //botao 06
+      var botao06 = this.add.sprite(470, 650, "botao06").setInteractive();
+      botao06.setScale(1.5);
+      var borda06 = this.add.sprite(660, 675, "borda");
+      this.plank = this.add.sprite(660, 625, "plank");
+
+      botao06.on('pointerdown', function(pointer){
+
+        trofeu.play('trofeu_anim');
+        borda06.play('borda06_anim');
+      })
+      botao06.on('pointerover', function(){
+
+        botao06.setTint(0xa37f5f);
+
+      });
+      botao06.on('pointerout', function(){
+
+        botao06.clearTint();
+        
+      });
       
-      //animação raposa correnndo e atk
-      this.anims.create({
-        key: "fox_run_anim",
-        frames: this.anims.generateFrameNumbers("foxrun"),
-        frameRate: 10,
-        repeat: -1
-      });
+      var trofeu = this.add.sprite(1375, 600, "trofeu");
 
-      this.anims.create({
-          key: "fox_atk_anim",
-          frames: this.anims.generateFrameNumbers("foxatk"),
-          frameRate: 10,
-          repeat: 0
-      });
-      //transicionar animaçao
-      this.anims.addMix('fox_run_anim', 'fox_atk_anim', 250)
-      this.anims.addMix('fox_atk_anim', 'fox_run_anim', 250)
-
+      //lixos
+      this.lixo01 = this.add.image(1300, 215, "lixo01");
+      this.lixo01.setScale(1.5);
+      this.lixo02 = this.add.image(1650, 205, "lixo02");
+      this.lixo02.setScale(1.125);
+      this.lixo03 = this.add.image(1525, 230, "lixo03");
+      
       //variavel fox
       var fox = this.add.sprite(202, 202)
       var shape = new Phaser.Geom.Circle(36, 35, 35);
@@ -89,41 +201,20 @@ class Scene2 extends Phaser.Scene
       fox.play('fox_run_anim');
       fox.setScale(1.5);
 
-      //lixos
-      this.lixo01 = this.add.image(1300, 215, "lixo01");
-      this.lixo01.setScale(1.5);
-      this.lixo02 = this.add.image(1450, 215, "lixo02");
-      this.lixo01.setScale(1.5);
-      this.lixo03 = this.add.image(1550, 230, "lixo03");
-      this.lixo01.setScale(1.5);
 
       fox.on('pointerdown', function (pointer) {
 
         if (fox.anims.getName() === 'fox_run_anim')
-          {
-              fox.play('fox_atk_anim');
-          }
-
+        {
+          fox.playAfterRepeat('fox_atk_anim');
+          fox.chain(['fox_run_anim']);
+        }
       });
-      fox.on('pointerup', function (pointer) {
-
-        if (fox.anims.getName() === 'fox_atk_anim')
-          {
-                fox.play('fox_run_anim');
-          }
-
-      });
-
     }
   
     // 0 add the update function
     update() 
     {
-      //lixos movendo (chamando a funçao)
-      this.moveLixo1(this.lixo01, -3, 0);
-      this.moveLixo2(this.lixo02, -3, 0);
-      this.moveLixo3(this.lixo03, -3, 0);
-
       //parallax
       this.background01.tilePositionX += 2;
       this.background02.tilePositionX += 1;
@@ -131,51 +222,30 @@ class Scene2 extends Phaser.Scene
       this.background04.tilePositionX += 0.25;
       this.background05.tilePositionX += 0.125;
       this.background06.tilePositionX += 0;
-
-  
-      
-      /*if(Phaser.Input.Keyboard.JustDown(this.spacebar))
-      {
-        /*this.fox = this.add.sprite(202, 202, 'foxatk');
-        this.fox.play("fox_atk_anim");
-        this.fox.setScale(1.5);
-
-        if (fox.anims.getName() === 'fox_run_anim')
-            {
-                fox.play('fox_atk_anim');
-            }
-            else if (fox.anims.getName() === 'fox_atk_anim')
-            {
-                fox.play('fox_run_anim');
-            }
-      }*/
+      //this.parallaxBg(2, 1, 0.5, 0.25, 0.125, 0);
+      this.movLixo(this.lixo01, -3);
+      this.movLixo(this.lixo02, -3);
+      this.movLixo(this.lixo03, -3);
     }
+
+    //disparo da raposa(slash)
+
+    //funçao parallax
+    /*parallaxBg(bg1, bg2, bg3, bg4, bg5, bg6)
+    {
+      bg1 = this.background01.tilePositionX++;
+      bg2 = this.background02.tilePositionX++;
+      bg3 = this.background03.tilePositionX++;
+      bg4 = this.background04.tilePositionX++;
+      bg5 = this.background05.tilePositionX++;
+      bg6 = this.background06.tilePositionX++;
+    }*/
     //lixos movendo funçao
-    moveLixo1(lixo, speedx, speedy)
-    {
-      lixo.y += speedy 
-      lixo.x += speedx
-      if(lixo.x < -30 && this.lixo01)
+    movLixo(lixo, spdx){
+      lixo.x += spdx;
+      if(lixo.x < -30)
       {
-        lixo.x = 1350;
-      }
-    }
-    moveLixo2(lixo, speedx, speedy)
-    {
-      lixo.y += speedy 
-      lixo.x += speedx
-      if(lixo.x < -30 && this.lixo02)
-      {
-        lixo.x = 1450;
-      }
-    }
-    moveLixo3(lixo, speedx, speedy)
-    {
-      lixo.y += speedy 
-      lixo.x += speedx
-      if(lixo.x < -30 && this.lixo03)
-      {
-        lixo.x = 1550;
+        lixo.x = (Math.random() * (2500 - 1550)) + 1475;
       }
     }
 }
