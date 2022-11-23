@@ -1,10 +1,17 @@
 //configuração de resolução e tamanho da tela do jogo
 var config =
 {
+    pixelArt: true,
     width: 1475,
     height: 725,
     backgroundColor: 0x261321,
-    scene: [Scene1, Scene2]
+    scene: [Scene1, Scene2],
+    physics: {
+        default: 'arcade',
+        arcade: {
+            debug: false,
+        }
+    }
 } 
 //TAMANHO DA TELA DO JOGO: 270
 var game = new Phaser.Game(config);

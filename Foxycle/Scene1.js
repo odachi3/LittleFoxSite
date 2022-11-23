@@ -20,8 +20,11 @@ class Scene1 extends Phaser.Scene
     
         //lixos
         this.load.image("lixo01", "./assets/images/lixo01.png");
+        this.lixo01 = this.physics.add.group()
         this.load.image("lixo02", "./assets/images/lixo02.png");
+        this.lixo02 = this.physics.add.group()
         this.load.image("lixo03", "./assets/images/lixo03.png");
+        this.lixo03 = this.physics.add.group()
 
         //raposa spritesheet (run, atk e slash)
         this.load.spritesheet("foxrun", "./assets/spritesheets/fox_run_spritesheet.png",
@@ -59,7 +62,6 @@ class Scene1 extends Phaser.Scene
         this.load.image("botao05", "./assets/images/botao05.png");
         this.load.image("botao06", "./assets/images/botao06.png");
         this.load.image("plank", "./assets/images/plank.png");
-        //this.load.image("borda", "./assets/images/borda.png");
         this.load.image("trofeu", "./assets/images/trofeu.png");
     }
 
@@ -67,36 +69,67 @@ class Scene1 extends Phaser.Scene
     {
         this.add.text(20, 20, "Loading game...");
         this.scene.start("playGame");
+
         //animação raposa correnndo,atk e slash
-      this.anims.create({
-        key: "fox_run_anim",
-        frames: this.anims.generateFrameNumbers("foxrun"),
-        frameRate: 10,
-        repeat: -1
-      });
-      this.anims.create({
-          key: "fox_atk_anim",
-          frames: this.anims.generateFrameNumbers("foxatk"),
-          frameRate: 10,
-          repeat: 0
-      });
-      this.anims.create({
-          key: "slash_anim",
-          frames: this.anims.generateFrameNumbers("slash"),
-          frameRate: 20,
-          repeat: 0
-      });
-      this.anims.create({
-        key: "trofeu_anim",
-        frames: this.anims.generateFrameNumbers("trofeu"),
-        frameRate: 20,
-        repeat: 0
-    });
-    this.anims.create({
-        key: "borda06_anim",
-        frames: this.anims.generateFrameNumbers("borda"),
-        frameRate: 100,
-        repeat: 0
-      });
+         this.anims.create({
+            key: "fox_run_anim",
+            frames: this.anims.generateFrameNumbers("foxrun"),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: "fox_atk_anim",
+            frames: this.anims.generateFrameNumbers("foxatk"),
+            frameRate: 10,
+            repeat: 0
+        });
+        this.anims.create({
+            key: "slash_anim",
+            frames: this.anims.generateFrameNumbers("slash"),
+            frameRate: 20,
+            repeat: -1
+        });
+        this.anims.create({
+            key: "trofeu_anim",
+            frames: this.anims.generateFrameNumbers("trofeu"),
+            frameRate: 20,
+            repeat: 0
+        });
+        this.anims.create({
+            key: "borda01_anim",
+            frames: this.anims.generateFrameNumbers("borda"),
+            frameRate: 100,
+            repeat: 0
+        });
+        this.anims.create({
+            key: "borda02_anim",
+            frames: this.anims.generateFrameNumbers("borda"),
+            frameRate: 100,
+            repeat: 0
+        });
+        this.anims.create({
+            key: "borda03_anim",
+            frames: this.anims.generateFrameNumbers("borda"),
+            frameRate: 100,
+            repeat: 0
+        });
+        this.anims.create({
+            key: "borda04_anim",
+            frames: this.anims.generateFrameNumbers("borda"),
+            frameRate: 100,
+            repeat: 0
+        });
+        this.anims.create({
+            key: "borda05_anim",
+            frames: this.anims.generateFrameNumbers("borda"),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: "borda06_anim",
+            frames: this.anims.generateFrameNumbers("borda"),
+            frameRate: 100,
+            repeat: 0
+        });
     }
 }

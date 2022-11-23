@@ -326,7 +326,7 @@ body{
         height: 100%;
         width: 100%;
         background-repeat: no-repeat;
-        background-color: aqua;
+        background-color: rgb(61, 42, 78);
     }
     /*Título da tela de suporte*/
     .supportlabel{

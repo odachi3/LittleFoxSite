@@ -80,6 +80,10 @@ class Scene2 extends Phaser.Scene
       var borda01 = this.add.sprite(260, 375, "borda");
       this.plank = this.add.sprite(260, 330, "plank"); 
 
+      botao01.on('pointerdown', function(pointer){
+
+        borda01.play('borda01_anim');
+      })
       botao01.on('pointerover', function(){
 
         botao01.setTint(0xa37f5f);
@@ -97,6 +101,10 @@ class Scene2 extends Phaser.Scene
       var borda02 = this.add.sprite(260, 525, "borda");
       this.plank = this.add.sprite(260, 475, "plank");
 
+      botao02.on('pointerdown', function(pointer){
+
+        borda02.play('borda02_anim');
+      })
       botao02.on('pointerover', function(){
 
         botao02.setTint(0xa37f5f);
@@ -115,6 +123,10 @@ class Scene2 extends Phaser.Scene
       var borda03 = this.add.sprite(260, 675, "borda");
       this.plank = this.add.sprite(260, 625, "plank");
 
+      botao03.on('pointerdown', function(pointer){
+
+        borda03.play('borda03_anim');
+      })
       botao03.on('pointerover', function(){
 
         botao03.setTint(0xa37f5f);
@@ -133,6 +145,10 @@ class Scene2 extends Phaser.Scene
       var borda04 = this.add.sprite(660, 375, "borda");
       this.plank = this.add.sprite(660, 325, "plank");
 
+      botao04.on('pointerdown', function(pointer){
+
+        borda04.play('borda04_anim');
+      })
       botao04.on('pointerover', function(){
 
         botao04.setTint(0xa37f5f);
@@ -151,6 +167,10 @@ class Scene2 extends Phaser.Scene
       var borda05 = this.add.sprite(660, 525, "borda");
       this.plank = this.add.sprite(660, 475, "plank");
 
+      botao05.on('pointerdown', function(pointer){
+
+        borda05.play('borda05_anim');
+      })
       botao05.on('pointerover', function(){
 
         botao05.setTint(0xa37f5f);
@@ -201,18 +221,23 @@ class Scene2 extends Phaser.Scene
       fox.play('fox_run_anim');
       fox.setScale(1.5);
 
-
+      this.projectiles = this.add.group();
+      
+      //clique na raposa (animaçao atk e slash)
       fox.on('pointerdown', function (pointer) {
 
         if (fox.anims.getName() === 'fox_run_anim')
         {
           fox.playAfterRepeat('fox_atk_anim');
           fox.chain(['fox_run_anim']);
+          this.shootSlash();
         }
-      });
+      }, this);
+      
+      this.fox = fox;
     }
   
-    // 0 add the update function
+    //update function
     update() 
     {
       //parallax
@@ -222,24 +247,17 @@ class Scene2 extends Phaser.Scene
       this.background04.tilePositionX += 0.25;
       this.background05.tilePositionX += 0.125;
       this.background06.tilePositionX += 0;
-      //this.parallaxBg(2, 1, 0.5, 0.25, 0.125, 0);
+  
       this.movLixo(this.lixo01, -3);
       this.movLixo(this.lixo02, -3);
       this.movLixo(this.lixo03, -3);
     }
 
     //disparo da raposa(slash)
+    shootSlash(){
+      var slash = new Slash(this);
+    }
 
-    //funçao parallax
-    /*parallaxBg(bg1, bg2, bg3, bg4, bg5, bg6)
-    {
-      bg1 = this.background01.tilePositionX++;
-      bg2 = this.background02.tilePositionX++;
-      bg3 = this.background03.tilePositionX++;
-      bg4 = this.background04.tilePositionX++;
-      bg5 = this.background05.tilePositionX++;
-      bg6 = this.background06.tilePositionX++;
-    }*/
     //lixos movendo funçao
     movLixo(lixo, spdx){
       lixo.x += spdx;
