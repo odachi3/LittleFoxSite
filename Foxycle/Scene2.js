@@ -64,13 +64,7 @@ class Scene2 extends Phaser.Scene
       graphics.closePath();
       graphics.fillPath();
       
-      //score
-      this.score = 0;
-    
-      //Textos
-      this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "Lixo coletado: ", 25);
-      this.menu = this.add.bitmapText(1140, 315, "pixelFont", "MENU", 25);
-
+      
       //botoes
 
       //botao 01
@@ -190,9 +184,13 @@ class Scene2 extends Phaser.Scene
 
       botao06.on('pointerdown', function(pointer){
 
-        trofeu.play('trofeu_anim');
-        borda06.play('borda06_anim');
-      })
+        if(this.score >= 30){
+          trofeu.play('trofeu_anim');
+          borda06.play('borda06_anim');
+          this.score -= 30;
+          this.scoreLabel.text = "Fox Coins: " + this.score; 
+        }
+      }, this)
       botao06.on('pointerover', function(){
 
         botao06.setTint(0xa37f5f);
@@ -207,11 +205,18 @@ class Scene2 extends Phaser.Scene
       var trofeu = this.add.sprite(1375, 600, "trofeu");
 
       //lixos
-      this.lixo01 = this.add.image(1300, 215, "lixo01");
+      this.lixo01 = this.add.image(1300, 215, "lixo01").setInteractive();
       this.lixo01.setScale(1.5);
-      this.lixo02 = this.add.image(1650, 205, "lixo02");
+      this.lixo02 = this.add.image(1650, 205, "lixo02").setInteractive();
       this.lixo02.setScale(1.125);
-      this.lixo03 = this.add.image(1525, 230, "lixo03");
+      this.lixo03 = this.add.image(1525, 230, "lixo03").setInteractive();
+
+      this.lixos = this.physics.add.group();
+      this.lixos.add(this.lixo01);
+      this.lixos.add(this.lixo02);
+      this.lixos.add(this.lixo03);
+
+      //this.physics.add.overlap(this.projectiles, this.lixos)
       
       //variavel fox
       var fox = this.add.sprite(202, 202)
@@ -225,20 +230,28 @@ class Scene2 extends Phaser.Scene
       
       //clique na raposa (animaçao atk e slash)
       fox.on('pointerdown', function (pointer) {
-
-        if (fox.anims.getName() === 'fox_run_anim')
+        /*if (fox.anims.getName() === 'fox_run_anim')
         {
           fox.playAfterRepeat('fox_atk_anim');
           fox.chain(['fox_run_anim']);
-          this.shootSlash();
-        }
+        }*/
+        this.shootSlash();
       }, this);
-      
+
       this.fox = fox;
+      
+      this.physics.add.overlap(this.projectiles, this.lixos, this.hitLixo, null, this);
+    
+      //score
+      this.score = 0;
+    
+      //Textos
+      this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "Fox Coins: ", 25);
+      this.menu = this.add.bitmapText(1140, 315, "pixelFont", "MENU", 25);
     }
   
     //update function
-    update() 
+    update()  
     {
       //parallax
       this.background01.tilePositionX += 2;
@@ -251,19 +264,40 @@ class Scene2 extends Phaser.Scene
       this.movLixo(this.lixo01, -3);
       this.movLixo(this.lixo02, -3);
       this.movLixo(this.lixo03, -3);
+
+      for(var i = 0; i < this.projectiles.getChildren().length; i++){
+        var slash = this.projectiles.getChildren()[i];
+        slash.update();
+      }
     }
 
     //disparo da raposa(slash)
     shootSlash(){
       var slash = new Slash(this);
     }
-
     //lixos movendo funçao
     movLixo(lixo, spdx){
       lixo.x += spdx;
       if(lixo.x < -30)
       {
-        lixo.x = (Math.random() * (2500 - 1550)) + 1475;
+        this.resetLixoPos(lixo);
       }
     }
-}
+    resetLixoPos(lixo){
+      lixo.x = (Math.random() * (2500 - 1550)) + 1475;
+    }
+    hitLixo(projectiles, lixo){
+      projectiles.destroy();
+      this.resetLixoPos(lixo);
+      if(lixo == this.lixo01){
+        this.score += 10;
+      }
+      if(lixo == this.lixo02){
+        this.score += 15;
+      }
+      if(lixo == this.lixo03){
+        this.score += 5;
+      }
+      this.scoreLabel.text = "Fox Coins: " + this.score;
+    }
+  }

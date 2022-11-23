@@ -20,11 +20,8 @@ class Scene1 extends Phaser.Scene
     
         //lixos
         this.load.image("lixo01", "./assets/images/lixo01.png");
-        this.lixo01 = this.physics.add.group()
         this.load.image("lixo02", "./assets/images/lixo02.png");
-        this.lixo02 = this.physics.add.group()
         this.load.image("lixo03", "./assets/images/lixo03.png");
-        this.lixo03 = this.physics.add.group()
 
         //raposa spritesheet (run, atk e slash)
         this.load.spritesheet("foxrun", "./assets/spritesheets/fox_run_spritesheet.png",
@@ -86,8 +83,8 @@ class Scene1 extends Phaser.Scene
         this.anims.create({
             key: "slash_anim",
             frames: this.anims.generateFrameNumbers("slash"),
-            frameRate: 20,
-            repeat: -1
+            frameRate: 12,
+            repeat: 0
         });
         this.anims.create({
             key: "trofeu_anim",
@@ -130,6 +127,6 @@ class Scene1 extends Phaser.Scene
             frames: this.anims.generateFrameNumbers("borda"),
             frameRate: 100,
             repeat: 0
-        });
+        });      
     }
 }
